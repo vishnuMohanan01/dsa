@@ -27,7 +27,7 @@ class Node {
 class Graph {
   public:
     unordered_map<int, Node*> nodes;
-    
+
     void add_node(int number) {
       nodes[number] = new Node(number);
     }
@@ -37,18 +37,12 @@ class Graph {
         nodes[from]->add_connection(nodes[to]);
       }
     }
-    
+
     bool search_path(int num_1, int num_2) {
-      if (nodes.find(num_1) == nodes.end()) {
-        cout << num_1 << " is not in graph!";
-        return false;
+      if (nodes.find(num_1) == nodes.end() || nodes.find(num_2) == nodes.end()) {
+        return false; // or raise error
       }
-      
-      if (nodes.find(num_2) == nodes.end()) {
-        cout << num_2 << " is not in graph!";
-        return false;
-      }
-      
+  
       if (num_1 == num_2) return true;
       
       Node* start = nodes[num_1];
