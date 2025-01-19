@@ -18,10 +18,13 @@ class Tree;
 class LinkedListNode {
   public:
     TreeNode* item;
-    LinkedListNode* prev = NULL;
     LinkedListNode* next = NULL;
     
     LinkedListNode(TreeNode* newItem) : item(newItem) {}
+    
+    ~LinkedListNode() {
+      delete next;
+    }
 };
 
 class LinkedList {
@@ -37,6 +40,10 @@ class LinkedList {
     void add(TreeNode* newItem) {
       tail->next = new LinkedListNode(newItem);
       tail = tail->next;
+    }
+    
+    ~LinkedList() {
+      delete head;
     }
 };
 
@@ -79,7 +86,7 @@ class Tree {
     }
   
     // returns a vector of linked lists of all TreeNode* in the same level for each level in the tree
-    vector<LinkedList*> getLevelsList() {
+    void getLevelsList() {
       vector<LinkedList*> levelsList;
       
       preOrderTraverse(root, levelsList, 0);
@@ -95,7 +102,9 @@ class Tree {
         cout << endl;
       }
       
-      return levelsList;
+      for (LinkedList* list : levelsList) {
+        delete list;
+      }
     }
     
     void preOrderTraverse(TreeNode* node, vector<LinkedList*>& levelsList, int level) {
