@@ -1,6 +1,6 @@
 /* 
- * Given a binary tree, design an algorithm which creates a linked list of all nodes at each depth 
- * (eg: If you have a tre with depth D, you'll have D linked lists).
+Given a binary tree, design an algorithm which creates a linked list of all nodes at each depth 
+(eg: If you have a tre with depth D, you'll have D linked lists).
 */
 
 #include <iostream>
