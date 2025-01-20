@@ -17,14 +17,14 @@ class FixedMultiStack {
     int* sizes;
   
   public:
-    class FullStackException : public std::exception {
+    class FullStackException : public exception {
       public:
         const char* what() const throw() {
             return "Stack is full. Cannot push more elements.";
         }
     };
   
-    class EmptyStackException : public std::exception {
+    class EmptyStackException : public exception {
       public:
         const char* what() const throw() {
             return "Stack is empty. Cannot pop or peek.";
