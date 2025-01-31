@@ -1,3 +1,7 @@
+/*
+ * Given a URL convert spaces into %20 and trim trailing spaces.
+*/
+
 #include <iostream>
 
 using namespace std;
