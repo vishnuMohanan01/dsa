@@ -33,6 +33,7 @@ int main() {
   int n;
   cout << "Enter the order: ";
   cin >> n;
+
   cin.ignore();
   
   if (n <= 0) {
